@@ -2,10 +2,12 @@ package com.educandoweb.course.config;
 
 import com.educandoweb.course.entities.Category;
 import com.educandoweb.course.entities.Order;
+import com.educandoweb.course.entities.Product;
 import com.educandoweb.course.entities.User;
 import com.educandoweb.course.entities.enums.OrderStatus;
 import com.educandoweb.course.repositories.CategoryRepository;
 import com.educandoweb.course.repositories.OrderRepository;
+import com.educandoweb.course.repositories.ProductRepository;
 import com.educandoweb.course.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -28,6 +30,9 @@ public class TestConfig implements CommandLineRunner {
     @Autowired
     private CategoryRepository categoryRepository;
 
+    @Autowired
+    private ProductRepository productRepository;
+
     @Override
     public void run(String... args) throws Exception {
         User u1 = new User(null, "Maria Brown","maria@gmail.com","88888888","123456");
@@ -39,8 +44,12 @@ public class TestConfig implements CommandLineRunner {
         Category cat1 = new Category(null, "Electronics");
         Category cat2 = new Category(null, "Books");
 
+        Product p1 = new Product(null, "Clock", "Texto generico", 90.5, "");
+        Product p2 = new Product(null, "Tv", "Texto generico", 2290.5, "");
+
         userRepository.saveAll(Arrays.asList(u1,u2));
         orderRepository.saveAll(Arrays.asList(o1,o2));
         categoryRepository.saveAll(Arrays.asList(cat1,cat2));
+        productRepository.saveAll(Arrays.asList(p1,p2));
     }
 }
