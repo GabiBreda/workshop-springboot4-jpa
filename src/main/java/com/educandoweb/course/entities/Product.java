@@ -10,7 +10,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name = "st_product")
+@Table(name = "tb_product")
 public class Product implements Serializable {
 
     private static final long serialVeriosnUID = 1L;
