@@ -33,7 +33,9 @@ public class UserService  {
     }
 
     public void delete(Long id){
-        //está deixando dar delete e retornando 204 para oq n estiver no banco ARRUMAR
+        if(!repository.existsById(id)){
+            throw new ResourceNotFoundException(id);
+        }
         try{
             repository.deleteById(id);
         }
@@ -44,12 +46,6 @@ public class UserService  {
             throw new DatabaseException(e.getMessage());
         }
 
-        /*
-        if (!repository.existsById(id)) {
-            throw new ResourceNotFoundException(id);
-        }
-        repository.deleteById(id);
-        */
     }
 
     public User update(Long id, User obj){
