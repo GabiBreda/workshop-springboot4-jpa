@@ -2,7 +2,6 @@ package com.educandoweb.course.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import org.springframework.web.bind.annotation.Mapping;
 
 import java.io.Serializable;
 import java.util.HashSet;
